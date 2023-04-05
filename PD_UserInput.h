@@ -39,6 +39,12 @@ namespace PD_UserInput
     @post - Entered string is returned in lowercase form
     **/
         string stringToLower(string given_string);
+
+    /**
+    Turns a string containing any cases, and turns all letters into uppercase
+    @post - Entered string is returned in uppercase form
+    **/
+        string stringToUpper(string given_string);
 }
 
 template <typename T>
@@ -59,18 +65,15 @@ T PD_UserInput::userInput()
     return input;
 }
 
-bool PD_UserInput::stringToBoolean(string user_input)
+bool PD_UserInput::stringToBoolean(string given_string)
 {
     bool yesOrNo;
 
     /// Change all characters in the string to lowercase, for ease of checking.
-    for (int i = 0; i < user_input.size(); i++)
-    {
-        user_input[i] = tolower(user_input[i]);
-    }
+    given_string = PD_UserInput::stringToLower(given_string);
 
     /// Valid True Options: yes, y, true, t, 1
-    if ((user_input == "yes") || (user_input == "y") || (user_input == "true") || (user_input == "t") || (user_input == "1"))
+    if ((given_string == "yes") || (given_string == "y") || (given_string == "true") || (given_string == "t") || (given_string == "1"))
     {
         yesOrNo = true;
     }
@@ -122,5 +125,18 @@ string PD_UserInput::stringToLower(string given_string)
     return given_string;
 }
 
+string PD_UserInput::stringToUpper(string given_string)
+{
+    /// Iterates through all characters in string and, if char is an uppercase letter, turn it into a lowercase version
+    for (int i = 0; i < given_string.length(); i++)
+    {
+        if (isalpha(given_string[i]) && isupper(given_string[i]))
+        {
+            given_string[i] = toupper(given_string[i]);
+        }
+    }
+
+    return given_string;
+}
 
 #endif // USER_INPUT_H_INCLUDED
