@@ -14,7 +14,7 @@ namespace PD_UserInput
     If a fail state is called (Should only be when a char value is passed to an int), then a value of -1 is returned
     **/
         template <typename T>
-        T userInput();
+        inline T userInput();
 
     /**
     String To Boolean
@@ -25,27 +25,28 @@ namespace PD_UserInput
 
     Any value that is not explicitly "yes" returns false.
     **/
-        bool stringToBoolean(string user_input);
+        inline bool stringToBoolean(string user_input);
 
     /**
     Handles Integer-Based menu choices
     @post - Returns an integer chosen by the user.
     Range is min_value - max_value, inclusive
     **/
-        int menuChoice(int min_value, int max_value);
+        inline int menuChoice(int min_value, int max_value);
 
     /**
     Turns a string containing any cases, and turns all letters into lowercase
     @post - Entered string is returned in lowercase form
     **/
-        string stringToLower(string given_string);
+        inline string stringToLower(string given_string);
 
     /**
     Turns a string containing any cases, and turns all letters into uppercase
     @post - Entered string is returned in uppercase form
     **/
-        string stringToUpper(string given_string);
+        inline string stringToUpper(string given_string);
 }
+
 
 template <typename T>
 T PD_UserInput::userInput()
