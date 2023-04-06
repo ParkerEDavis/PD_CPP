@@ -115,7 +115,7 @@ int PD_UserInput::menuChoice(int min_value, int max_value)
 string PD_UserInput::stringToLower(string given_string)
 {
     /// Iterates through all characters in string and, if char is an uppercase letter, turn it into a lowercase version
-    for (int i = 0; i < given_string.length(); i++)
+    for (unsigned i = 0; i < given_string.length(); i++)
     {
         if (isalpha(given_string[i]) && isupper(given_string[i]))
         {
@@ -129,7 +129,7 @@ string PD_UserInput::stringToLower(string given_string)
 string PD_UserInput::stringToUpper(string given_string)
 {
     /// Iterates through all characters in string and, if char is an uppercase letter, turn it into a lowercase version
-    for (int i = 0; i < given_string.length(); i++)
+    for (unsigned i = 0; i < given_string.length(); i++)
     {
         if (isalpha(given_string[i]) && isupper(given_string[i]))
         {
